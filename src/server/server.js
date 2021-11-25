@@ -3,6 +3,7 @@ import { configureRouter } from "../routes/api";
 
 export const configureServer = () => {
   const app = express();
+  app.use(express.json());
 
   app.listen(5000, () => {
     console.log("App running on port 5000");

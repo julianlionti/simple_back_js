@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { equiposRouter } from "./equipos";
+import { clientesRouter } from "./clientes";
 import { jugadoresRouter } from "./jugadores";
 
 export const configureRouter = () => {
   const router = Router();
-  router.use("/equipos", equiposRouter());
+  router.use("/clientes", clientesRouter());
   router.use("/jugadores", jugadoresRouter());
   return router;
 };
