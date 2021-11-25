@@ -13,11 +13,15 @@ export const clientesRouter = () => {
     const { body } = req;
 
     const { nombre, apellido, numero } = body;
-    const nuevoCliente = await ClienteModel.create({
-      nombre,
-      apellido,
-      numero,
-    });
+
+    const check = await ClienteModel.findOne({ nombre, apellido });
+    if (!check) {
+      const nuevoCliente = await ClienteModel.create({
+        nombre,
+        apellido,
+        numero,
+      });
+    }
 
     res.json(nuevoCliente);
   });
